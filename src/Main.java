@@ -17,11 +17,11 @@ public class Main {
         Game tictactoe = new Game(gameId, "test", "KAJ", rows);
         int result = 3;
         int curPlayer = 0;
-        while(result != 1 || result != 0){
+        while(result != 1 || result != -1){
             System.out.println("Please enter the move ! row and column");
            int rowIn =  scanner.nextInt();
            int colIn = scanner.nextInt();
-           tictactoe.move(curPlayer,rowIn,colIn,tictactoe.board.board);
+           result = tictactoe.move(curPlayer,rowIn,colIn, tictactoe.board);
            if(curPlayer == 0){
                curPlayer = 1;
            }
@@ -30,10 +30,7 @@ public class Main {
            }
 
            tictactoe.moves.add(tictactoe.board);
-            System.out.println(tictactoe.board.board[1][1]);
-           tictactoe.board.printCurrentState(tictactoe.board);
+           tictactoe.printCurrentState(tictactoe.board);
         }
-
-
     }
 }
